@@ -1,2 +1,2 @@
 # coachmeforadmin
-CoachMe part for admin
+CoachMe app for admin
