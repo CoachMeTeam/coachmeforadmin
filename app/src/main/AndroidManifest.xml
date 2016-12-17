@@ -24,6 +24,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <activity android:name=".activities.MainActivitySecureAdmin" />
+        <activity android:name=".activities.TestFichier"></activity>
+        <activity android:name=".activities.ActivityFormulaireAjout"></activity>
     </application>
 
 </manifest>
