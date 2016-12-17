@@ -4,7 +4,6 @@ import android.net.wifi.WifiConfiguration;
 import android.net.wifi.WifiManager;
 import android.util.Log;
 
-import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 
 public class WifiService {
@@ -19,7 +18,6 @@ public class WifiService {
         WifiConfiguration configuration = new WifiConfiguration();
         configuration.SSID = SSID;
         configuration.preSharedKey = WPA_KEY;
-//        configuration.hiddenSSID = true;
         configuration.allowedAuthAlgorithms.set(WifiConfiguration.AuthAlgorithm.OPEN);
         configuration.allowedProtocols.set(WifiConfiguration.Protocol.WPA);
         configuration.allowedProtocols.set(WifiConfiguration.Protocol.RSN);
