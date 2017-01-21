@@ -1,4 +1,4 @@
-package com.coachme.coachmeforadmin.activities;
+package com.coachme.coachmeforadmin.activities.admin;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -10,22 +10,26 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.coachme.coachmeforadmin.R;
+import com.coachme.coachmeforadmin.activities.admin.users.UsersListActivity;
+import com.coachme.coachmeforadmin.api.v1.CoachMeServer;
 import com.coachme.coachmeforadmin.services.WifiService;
 
-public class MainActivity extends Activity {
+
+public class AdminActivity extends Activity {
     private WifiManager wifiManager;
-    TextView textView;
-    private Button BoutonAjout;
-    private Button Boutontest;
+    TextView textViewServerInfo;
+    private Button addUserButton;
+    private Button usersListButton;
     private TextView TVvelo;
     private TextView TVdevlper;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_admin);
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
+
         wifiManager = (WifiManager) getSystemService(WIFI_SERVICE);
-        setContentView(R.layout.activity_main);
     }
 
     @Override
@@ -33,31 +37,35 @@ public class MainActivity extends Activity {
         super.onStart();
         WifiService.createCoachMeWifiNetwork(wifiManager);
 
-        BoutonAjout = (Button) findViewById(R.id.button1);
-        Boutontest = (Button) findViewById(R.id.button3);
-        TVvelo = (TextView) findViewById(R.id.textViewvelo);
-        TVdevlper = (TextView) findViewById(R.id.textViewdvp);
+        try {
+            CoachMeServer.start();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
-        //lors des cliques
-        BoutonAjout.setOnClickListener(new View.OnClickListener() {
+        addUserButton = (Button) findViewById(R.id.addUserButton);
+        usersListButton = (Button) findViewById(R.id.usersListButton);
+
+
+        addUserButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //changement de "page", activity via intent
-                Intent i = new Intent(getApplicationContext(), MainActivitySecureAdmin.class);
+                Intent i = new Intent(getApplicationContext(), AdminLoginActivity.class);
                 startActivity(i);
             }
         });
 
-        Boutontest.setOnClickListener(new View.OnClickListener() {
+        usersListButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //changement de "page", activity via intent
-                Intent i = new Intent(getApplicationContext(), TestFichier.class);
+                Intent i = new Intent(getApplicationContext(), UsersListActivity.class);
                 startActivity(i);
             }
         });
-        // Par la suite, nous recupererons les donnes issus des tablettes secondaires
-        TVvelo.setText("Libre");
-        TVdevlper.setText("Libre");
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
     }
 }
