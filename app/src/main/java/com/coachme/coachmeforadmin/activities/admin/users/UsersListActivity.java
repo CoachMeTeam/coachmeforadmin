@@ -75,7 +75,7 @@ public class UsersListActivity extends AppCompatActivity {
             TextView tv = new TextView(this);
             tv.setLayoutParams(new TableRow.LayoutParams(TableRow.LayoutParams.WRAP_CONTENT,
                     TableRow.LayoutParams.WRAP_CONTENT));
-            tv.setGravity(Gravity.CENTER);
+            tv.setGravity(Gravity.START);
             tv.setTextSize(18);
             tv.setPadding(5, 5, 5, 5);
             tv.setText(c);
@@ -94,7 +94,7 @@ public class UsersListActivity extends AppCompatActivity {
                 TextView tv = new TextView(this);
                 tv.setLayoutParams(new TableRow.LayoutParams(TableRow.LayoutParams.WRAP_CONTENT,
                         TableRow.LayoutParams.WRAP_CONTENT));
-                tv.setGravity(Gravity.CENTER);
+                tv.setGravity(Gravity.START);
                 tv.setTextSize(16);
                 tv.setPadding(5, 5, 5, 5);
                 tv.setText(text);
