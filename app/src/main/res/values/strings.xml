@@ -1,3 +1,22 @@
 <resources>
     <string name="app_name">CoachMeForAdmin</string>
+    <string name="adduser_button_text">Ajouter un adhérent</string>
+    <string name="userslist_button_text">Liste des adhérents</string>
+    <string name="name_text_view_text">NOM DE FAMILLE :</string>
+    <string name="firstname_text_view_text">PRENOM :</string>
+    <string name="goal_text_view_text">OBJECTIF :</string>
+    <string name="submit_button_text">Ajouter</string>
+    <string name="goback_button_text">Retour</string>
+    <string-array name="goals_array">
+        <item>Choisir un objectif</item>
+        <item>Fitness</item>
+        <item>Remise en forme</item>
+        <item>Prise de masse</item>
+        <item>Sèche</item>
+        <item>Perte de poids comprise entre 1 et 5 kg</item>
+        <item>Perte de poids comprise entre 6 et 10 kg</item>
+        <item>Perte de poids comprise entre 11 et 15 kg</item>
+        <item>Perte de poids comprise supérieure à 15 kg</item>
+        <item>Sportif de haut niveau</item>
+    </string-array>
 </resources>
