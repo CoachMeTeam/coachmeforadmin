@@ -10,6 +10,7 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.coachme.coachmeforadmin.R;
+import com.coachme.coachmeforadmin.activities.MainActivity;
 import com.coachme.coachmeforadmin.activities.admin.users.UsersListActivity;
 import com.coachme.coachmeforadmin.api.v1.CoachMeServer;
 import com.coachme.coachmeforadmin.services.WifiService;
@@ -62,6 +63,13 @@ public class AdminActivity extends Activity {
                 startActivity(i);
             }
         });
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        Intent i = new Intent(getApplicationContext(), MainActivity.class);
+        startActivity(i);
     }
 
     @Override
