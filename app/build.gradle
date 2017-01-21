@@ -30,6 +30,15 @@ dependencies {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
     compile 'com.android.support:appcompat-v7:23.4.0'
+    compile group: 'org.restlet.android', name: 'org.restlet', version: '2.3.2'
+    compile group: 'org.restlet.android', name: 'org.restlet.ext.json', version: '2.3.2'
+    compile group: 'org.restlet.android', name: 'org.restlet.ext.nio', version: '2.3.2'
+    compile group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version: '2.8.6'
+    compile group: 'com.github.valdr', name: 'valdr-bean-validation', version: '1.1.2'
+    compile group: 'org.hibernate', name: 'hibernate-validator', version: '5.2.4.Final'
+    compile group: 'javax.el', name: 'javax.el-api', version: '2.2.4'
     testCompile 'junit:junit:4.12'
+    testCompile group: 'com.squareup.okhttp3', name: 'mockwebserver', version: '3.5.0'
     compile files('libs/sqlite-jdbc-3.15.1.jar')
+    compile 'com.google.android.gms:play-services-appindexing:8.4.0'
 }
