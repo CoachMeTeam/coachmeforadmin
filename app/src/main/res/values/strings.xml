@@ -1,5 +1,6 @@
 <resources>
     <string name="app_name">CoachMeForAdmin</string>
+    <string name="adminmodule_button_text">Module d\'admin</string>
     <string name="adduser_button_text">Ajouter un adhérent</string>
     <string name="userslist_button_text">Liste des adhérents</string>
     <string name="name_text_view_text">NOM DE FAMILLE :</string>
