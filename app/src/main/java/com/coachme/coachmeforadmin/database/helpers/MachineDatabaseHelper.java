@@ -48,7 +48,7 @@ public class MachineDatabaseHelper {
         ContentValues values = new ContentValues();
         values.put(KEY__MACHINE_NAME, machine.getMachineName());
         values.put(KEY__MACHINE_TYPE, machine.getMachineType());
-        values.put(KEY_AVAILABLE, machine.isAvailable());
+        values.put(KEY_AVAILABLE, true);
         values.put(KEY_USED_BY_A_TABLET, machine.isUsedByATablet());
 
         return db.insert(TABLE_NAME, null, values);
