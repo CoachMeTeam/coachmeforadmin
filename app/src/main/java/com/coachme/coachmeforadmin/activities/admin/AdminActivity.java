@@ -12,7 +12,6 @@ import android.widget.TextView;
 import com.coachme.coachmeforadmin.R;
 import com.coachme.coachmeforadmin.activities.MainActivity;
 import com.coachme.coachmeforadmin.activities.admin.users.UsersListActivity;
-import com.coachme.coachmeforadmin.api.v1.CoachMeServer;
 import com.coachme.coachmeforadmin.services.WifiService;
 
 
@@ -37,12 +36,6 @@ public class AdminActivity extends Activity {
     protected void onStart() {
         super.onStart();
         WifiService.createCoachMeWifiNetwork(wifiManager);
-
-        try {
-            CoachMeServer.start();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
 
         addUserButton = (Button) findViewById(R.id.addUserButton);
         usersListButton = (Button) findViewById(R.id.usersListButton);
