@@ -39,7 +39,7 @@ public class UsersListActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_users_list);
 
-        initFieldComponents();
+        initComponents();
         userDatabaseHelper = new UserDatabaseHelper();
         users = userDatabaseHelper.getUsers();
 
@@ -59,7 +59,7 @@ public class UsersListActivity extends AppCompatActivity {
         });
     }
 
-    private void initFieldComponents() {
+    private void initComponents() {
         tableLayout = (TableLayout) findViewById(R.id.usersTable);
         goBackButton = (Button) findViewById(R.id.usersListGoBackButton);
     }
