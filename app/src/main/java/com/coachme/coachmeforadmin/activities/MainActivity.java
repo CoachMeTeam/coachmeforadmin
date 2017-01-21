@@ -39,6 +39,10 @@ public class MainActivity extends Activity {
         });
     }
 
+    @Override
+    public void onBackPressed() {
+    }
+
     private void initComponents() {
         adminModuleButton = (Button) findViewById(R.id.adminModuleButton);
     }
