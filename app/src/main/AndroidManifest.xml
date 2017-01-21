@@ -18,16 +18,17 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-
-        <activity android:name=".activities.admin.AdminActivity">
+        <activity android:name=".activities.admin.AdminActivity"></activity>
+        <activity android:name=".activities.admin.AdminLoginActivity" />
+        <activity android:name=".activities.admin.users.UsersListActivity" />
+        <activity android:name=".activities.admin.users.AddUserActivity" />
+        <activity android:name=".activities.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".activities.admin.AdminLoginActivity"></activity>
-        <activity android:name=".activities.admin.users.UsersListActivity"></activity>
-        <activity android:name=".activities.admin.users.AddUserActivity"></activity>
     </application>
+
 </manifest>
