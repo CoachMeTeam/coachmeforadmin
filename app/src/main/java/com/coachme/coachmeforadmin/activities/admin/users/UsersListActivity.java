@@ -20,8 +20,6 @@ import com.coachme.coachmeforadmin.model.User;
 import java.util.ArrayList;
 import java.util.List;
 
-import static com.coachme.coachmeforadmin.CoachMeForAdminApp.getContext;
-
 
 public class UsersListActivity extends AppCompatActivity {
     private final String ID_COLUMN = "ID";
@@ -66,7 +64,7 @@ public class UsersListActivity extends AppCompatActivity {
 
     private void addHeaders() {
         TableLayout tableLayout = (TableLayout) findViewById(R.id.usersTable);
-        TableRow rowHeader = new TableRow(getContext());
+        TableRow rowHeader = new TableRow(getApplicationContext());
         rowHeader.setBackgroundColor(Color.parseColor("#c0c0c0"));
         rowHeader.setLayoutParams(new TableLayout.LayoutParams(TableLayout.LayoutParams.MATCH_PARENT,
                 TableLayout.LayoutParams.WRAP_CONTENT));
@@ -86,7 +84,7 @@ public class UsersListActivity extends AppCompatActivity {
 
     private void addData(List<User> users) {
         for (User user : users) {
-            TableRow row = new TableRow(getContext());
+            TableRow row = new TableRow(getApplicationContext());
             row.setLayoutParams(new TableLayout.LayoutParams(TableLayout.LayoutParams.MATCH_PARENT,
                     TableLayout.LayoutParams.WRAP_CONTENT));
             String[] colText = {Integer.toString(user.getId()), user.getName(), user.getFirstName(), user.getGoal()};
