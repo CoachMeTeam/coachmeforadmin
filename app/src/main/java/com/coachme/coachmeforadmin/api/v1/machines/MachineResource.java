@@ -16,7 +16,7 @@ import org.restlet.resource.ResourceException;
 import org.restlet.resource.ServerResource;
 
 public class MachineResource extends ServerResource {
-    static MachineDatabaseHelper machineDatabaseHelper = new MachineDatabaseHelper();
+    static MachineDatabaseHelper machineDatabaseHelper = CoachMeForAdminApp.getMachineDatabaseHelper();
     private int machineId;
 
     @Override

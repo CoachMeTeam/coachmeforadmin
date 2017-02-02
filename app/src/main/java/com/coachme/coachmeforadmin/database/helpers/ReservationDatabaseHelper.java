@@ -11,8 +11,9 @@ import com.coachme.coachmeforadmin.utils.errors.NotFoundException;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Observable;
 
-public class ReservationDatabaseHelper {
+public class ReservationDatabaseHelper extends Observable {
     public static final String TABLE_NAME = "reservation";
     public static final String KEY_ID = "id";
     public static final String KEY_RESERVATION_DATE = "reservationDate";
@@ -53,6 +54,9 @@ public class ReservationDatabaseHelper {
         values.put(KEY_MACHINE_ID, reservation.getMachineId());
         values.put(KEY_USER_ID, reservation.getUserId());
 
+        setChanged();
+        notifyObservers();
+
         return db.insert(TABLE_NAME, null, values);
     }
 
@@ -66,12 +70,18 @@ public class ReservationDatabaseHelper {
         String where = KEY_ID + " = ?";
         String[] whereArgs = {id + ""};
 
+        setChanged();
+        notifyObservers();
+
         return db.update(TABLE_NAME, values, where, whereArgs);
     }
 
     public int deleteReservation(Reservation reservation) {
         String where = KEY_ID + " = ?";
         String[] whereArgs = {reservation.getId() + ""};
+
+        setChanged();
+        notifyObservers();
 
         return db.delete(TABLE_NAME, where, whereArgs);
     }
@@ -109,5 +119,25 @@ public class ReservationDatabaseHelper {
         cursor.close();
 
         return reservations;
+    }
+
+    public Reservation getLatestReservationOfMachine(int machineId) {
+        Cursor cursor = db.rawQuery("SELECT * FROM " + TABLE_NAME + " r1 WHERE r1." + KEY_ID +
+                        " =(SELECT MAX(r2." + KEY_ID + ") FROM " + TABLE_NAME + " r2 WHERE r2." + KEY_MACHINE_ID + " = " + machineId + ")",
+                null);
+
+        if (cursor.moveToFirst()) {
+            Reservation reservation = new Reservation(cursor.getString(cursor.getColumnIndex(KEY_RESERVATION_DATE)),
+                    cursor.getInt(cursor.getColumnIndex(KEY_DURATION)),
+                    cursor.getInt(cursor.getColumnIndex(KEY_MACHINE_ID)),
+                    cursor.getInt(cursor.getColumnIndex(KEY_USER_ID)));
+            reservation.setId(cursor.getInt(cursor.getColumnIndex(KEY_ID)));
+
+            cursor.close();
+
+            return reservation;
+        }
+        cursor.close();
+        return null;
     }
 }

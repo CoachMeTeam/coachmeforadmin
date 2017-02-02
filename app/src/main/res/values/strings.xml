@@ -3,21 +3,27 @@
     <string name="adminmodule_button_text">Module d\'admin</string>
     <string name="adduser_button_text">Ajouter un adhérent</string>
     <string name="userslist_button_text">Liste des adhérents</string>
+    <string name="addmachine_button_text">Ajouter une machine</string>
+    <string name="machineslist_button_text">Liste des machines</string>
     <string name="name_text_view_text">NOM DE FAMILLE :</string>
     <string name="firstname_text_view_text">PRENOM :</string>
     <string name="goal_text_view_text">OBJECTIF :</string>
+    <string name="machinename_text_view_text">NOM DE LA MACHINE :</string>
+    <string name="machinetypes_textview_text">TYPE DE MACHINE :</string>
     <string name="submit_button_text">Ajouter</string>
+    <string name="updatesubmit_button_text">Modifier</string>
     <string name="goback_button_text">Retour</string>
+    <string name="adminpassword_button_text">Se connecter</string>
     <string-array name="goals_array">
         <item>Choisir un objectif</item>
+        <item>Musculation</item>
         <item>Fitness</item>
-        <item>Remise en forme</item>
-        <item>Prise de masse</item>
-        <item>Sèche</item>
-        <item>Perte de poids comprise entre 1 et 5 kg</item>
-        <item>Perte de poids comprise entre 6 et 10 kg</item>
-        <item>Perte de poids comprise entre 11 et 15 kg</item>
-        <item>Perte de poids comprise supérieure à 15 kg</item>
-        <item>Sportif de haut niveau</item>
+        <item>Cardio</item>
+    </string-array>
+    <string-array name="machinetypes_array">
+        <item>Choisir un type de machine</item>
+        <item>Musculation</item>
+        <item>Fitness</item>
+        <item>Cardio</item>
     </string-array>
 </resources>

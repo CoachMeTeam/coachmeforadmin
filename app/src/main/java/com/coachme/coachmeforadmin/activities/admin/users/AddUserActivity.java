@@ -7,7 +7,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.coachme.coachmeforadmin.R;
@@ -22,7 +21,6 @@ public class AddUserActivity extends Activity {
     private final String FIELD_REQUIRED = "Ce champ est requis.";
 
     private Spinner goalSpinner;
-    private TextView nameTextView, firstNameTextView, goalTextView;
     private EditText nameEditText, firstNameEditText;
     private Button submitButton, goBackButton;
     UserDatabaseHelper userDatabaseHelper;
@@ -31,38 +29,9 @@ public class AddUserActivity extends Activity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_user);
-    }
 
-    public void onStart() {
-        super.onStart();
-
-        initFieldComponents();
+        initComponents();
         userDatabaseHelper = new UserDatabaseHelper();
-
-        submitButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if (checkIfFormValid()) {
-                    String name = nameEditText.getText().toString();
-                    String firstName = firstNameEditText.getText().toString();
-                    String goal = String.valueOf(goalSpinner.getSelectedItem());
-
-                    User user = new User(name, firstName, goal, false);
-                    userDatabaseHelper.addUser(user);
-
-                    Intent i = new Intent(getApplicationContext(), UsersListActivity.class);
-                    startActivity(i);
-                }
-            }
-        });
-
-        goBackButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent i = new Intent(getApplicationContext(), AdminActivity.class);
-                startActivity(i);
-            }
-        });
     }
 
     @Override
@@ -93,14 +62,36 @@ public class AddUserActivity extends Activity {
         return isFormValid;
     }
 
-    private void initFieldComponents() {
+    private void initComponents() {
         nameEditText = (EditText) findViewById(R.id.nameEditText);
-        nameTextView = (TextView) findViewById(R.id.nameTextView);
         firstNameEditText = (EditText) findViewById(R.id.firstNameEditText);
-        firstNameTextView = (TextView) findViewById(R.id.firstNameTextView);
         goalSpinner = (Spinner) findViewById(R.id.goalSpinner);
-        goalTextView = (TextView) findViewById(R.id.goalTextView);
-        submitButton = (Button) findViewById(R.id.submitButton);
+        submitButton = (Button) findViewById(R.id.addUserSubmitButton);
         goBackButton = (Button) findViewById(R.id.addUserGoBackButton);
+
+        submitButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (checkIfFormValid()) {
+                    String name = nameEditText.getText().toString();
+                    String firstName = firstNameEditText.getText().toString();
+                    String goal = String.valueOf(goalSpinner.getSelectedItem());
+
+                    User user = new User(name, firstName, goal, false);
+                    userDatabaseHelper.addUser(user);
+
+                    Intent i = new Intent(getApplicationContext(), UsersListActivity.class);
+                    startActivity(i);
+                }
+            }
+        });
+
+        goBackButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(getApplicationContext(), AdminActivity.class);
+                startActivity(i);
+            }
+        });
     }
 }

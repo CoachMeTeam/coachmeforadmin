@@ -1,6 +1,5 @@
 package com.coachme.coachmeforadmin.api.v1.users;
 
-import com.coachme.coachmeforadmin.CoachMeForAdminApp;
 import com.coachme.coachmeforadmin.database.helpers.UserDatabaseHelper;
 import com.coachme.coachmeforadmin.model.User;
 import com.coachme.coachmeforadmin.utils.Helper;
@@ -37,7 +36,7 @@ public class UserResource extends ServerResource {
             String jsonError = Helper.convertObjectToJson(e.getError());
 
             getResponse().setEntity(new JsonRepresentation(jsonError));
-            getResponse().setStatus(Status.CLIENT_ERROR_BAD_REQUEST);
+            getResponse().setStatus(Status.CLIENT_ERROR_NOT_FOUND);
         }
     }
 

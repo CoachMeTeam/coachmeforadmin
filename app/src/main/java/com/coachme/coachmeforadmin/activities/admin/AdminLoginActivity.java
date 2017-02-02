@@ -1,69 +1,57 @@
 package com.coachme.coachmeforadmin.activities.admin;
 
+import android.app.Activity;
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
+import android.widget.Toast;
 
 import com.coachme.coachmeforadmin.R;
-import com.coachme.coachmeforadmin.activities.admin.users.AddUserActivity;
 
-public class AdminLoginActivity extends AppCompatActivity {
-    //variables
-    private TextView affichage;
-    private EditText mdpAdmin;
-    private Button Valider;
-    private Button retour;
-    private String Code;
+public class AdminLoginActivity extends Activity {
+    private final String ADMIN_PASSWORD = "coachme_admin";
+
+    private EditText adminPasswordEditText;
+    private Button submitButton;
+    private Button backButton;
+    private String passwordEntered;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_login_admin);
-    }
+        setContentView(R.layout.activity_admin_login);
 
-    public void onStart() {
-        super.onStart();
-        //recuperation des object par les ID
-        Valider = (Button) findViewById(R.id.butOK);
-        retour = (Button) findViewById(R.id.buttonRetour1);
-        mdpAdmin = (EditText) findViewById(R.id.editTextCode);
-        affichage = (TextView) findViewById(R.id.textViewCode);
-        //lorsque l'on clique
-        Valider.setOnClickListener(new View.OnClickListener(){
+        initComponents();
+
+        submitButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                    //test du code admin
-                        Code = mdpAdmin.getText().toString();
-                        if (testCodeAdmin(Code)) {
-                            //si c'est OK
-                            affichage.setText("BRAVO ! le mot de passe est correct !!");
-                            //changement d'activity vers le formulaire d'inscription
-                            Intent i = new Intent(getApplicationContext(), AddUserActivity.class);
-                            startActivity(i);
-                        } else {
-                            affichage.setText("Attention, le mot de passe est faux !!");
-                        }
+                passwordEntered = adminPasswordEditText.getText().toString();
+                if (passwordEntered.equals(ADMIN_PASSWORD)) {
+                    Intent i = new Intent(getApplicationContext(), AdminActivity.class);
+                    startActivity(i);
+                } else {
+                    Toast.makeText(getApplicationContext(),
+                            "Le mot de passe saisi est incorrect, veuillez réessayer.",
+                            Toast.LENGTH_SHORT).show();
+                }
             }
         });
 
-        retour.setOnClickListener(new View.OnClickListener(){
+        backButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //changement d'actvity vers l'accueil
-                Intent i = new Intent(getApplicationContext(),AdminActivity.class );
+                Intent i = new Intent(getApplicationContext(), AdminActivity.class);
                 startActivity(i);
             }
         });
-
     }
 
-
-    public Boolean testCodeAdmin(String valeur){
-        return valeur.equals("bob");
+    private void initComponents() {
+        submitButton = (Button) findViewById(R.id.addUserSubmitButton);
+        backButton = (Button) findViewById(R.id.backButton);
+        adminPasswordEditText = (EditText) findViewById(R.id.adminPasswordEditText);
     }
-
 }

@@ -17,7 +17,7 @@ import org.restlet.resource.ResourceException;
 import org.restlet.resource.ServerResource;
 
 public class MachinesResources extends ServerResource {
-    static MachineDatabaseHelper machineDatabaseHelper = new MachineDatabaseHelper();
+    static MachineDatabaseHelper machineDatabaseHelper = CoachMeForAdminApp.getMachineDatabaseHelper();
 
     @Get("json")
     public Representation getMachines() throws ResourceException {

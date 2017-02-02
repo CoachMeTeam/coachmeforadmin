@@ -18,9 +18,9 @@ import org.restlet.resource.ResourceException;
 import org.restlet.resource.ServerResource;
 
 public class ReservationResource extends ServerResource {
-    static ReservationDatabaseHelper reservationDatabaseHelper = new ReservationDatabaseHelper();
+    static ReservationDatabaseHelper reservationDatabaseHelper = CoachMeForAdminApp.getReservationDatabaseHelper();
     static UserDatabaseHelper userDatabaseHelper = new UserDatabaseHelper();
-    static MachineDatabaseHelper machineDatabaseHelper = new MachineDatabaseHelper();
+    static MachineDatabaseHelper machineDatabaseHelper = CoachMeForAdminApp.getMachineDatabaseHelper();
     private int reservationId;
 
     @Override

@@ -11,8 +11,9 @@ import com.coachme.coachmeforadmin.utils.errors.NotFoundException;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Observable;
 
-public class MachineDatabaseHelper {
+public class MachineDatabaseHelper extends Observable{
     public static final String TABLE_NAME = "machine";
     public static final String KEY_ID = "id";
     public static final String KEY__MACHINE_NAME = "machineName";
@@ -51,6 +52,9 @@ public class MachineDatabaseHelper {
         values.put(KEY_AVAILABLE, true);
         values.put(KEY_USED_BY_A_TABLET, machine.isUsedByATablet());
 
+        setChanged();
+        notifyObservers();
+
         return db.insert(TABLE_NAME, null, values);
     }
 
@@ -64,12 +68,18 @@ public class MachineDatabaseHelper {
         String where = KEY_ID + " = ?";
         String[] whereArgs = {id + ""};
 
+        setChanged();
+        notifyObservers();
+
         return db.update(TABLE_NAME, values, where, whereArgs);
     }
 
     public int deleteMachine(Machine machine) {
         String where = KEY_ID + " = ?";
         String[] whereArgs = {machine.getId() + ""};
+
+        setChanged();
+        notifyObservers();
 
         return db.delete(TABLE_NAME, where, whereArgs);
     }

@@ -17,7 +17,7 @@
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
+        android:theme="@android:style/Theme.Material.Light.NoActionBar.Fullscreen">
         <activity android:name=".activities.admin.AdminActivity" />
         <activity android:name=".activities.admin.AdminLoginActivity" />
         <activity android:name=".activities.admin.users.UsersListActivity" />
@@ -29,6 +29,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".activities.admin.machines.AddMachineActivity" />
+        <activity android:name=".activities.admin.machines.MachinesListActivity" />
+        <activity android:name=".activities.admin.users.UpdateUserActivity" />
+        <activity android:name=".activities.admin.machines.UpdateMachineActivity"></activity>
     </application>
 
 </manifest>

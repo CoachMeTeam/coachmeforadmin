@@ -9,10 +9,10 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.coachme.coachmeforadmin.activities.admin.users.AddUserActivity">
+    tools:context="com.coachme.coachmeforadmin.activities.admin.users.UpdateUserActivity">
 
     <TextView
-        android:id="@+id/nameTextView"
+        android:id="@+id/updateUserNameTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
@@ -22,7 +22,7 @@
         android:textColor="#FFFFFF" />
 
     <EditText
-        android:id="@+id/nameEditText"
+        android:id="@+id/updateUserNameEditText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
@@ -33,64 +33,64 @@
         android:textColor="#FFFFFF" />
 
     <TextView
-        android:id="@+id/firstNameTextView"
+        android:id="@+id/updateUserFirstNameTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/firstNameEditText"
+        android:layout_alignBottom="@+id/updateUserFirstNameEditText"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="40dp"
         android:text="@string/firstname_text_view_text"
         android:textColor="#FFFFFF" />
 
     <EditText
-        android:id="@+id/firstNameEditText"
+        android:id="@+id/updateUserFirstNameEditText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignStart="@+id/nameEditText"
-        android:layout_below="@+id/nameEditText"
+        android:layout_alignStart="@+id/updateUserNameEditText"
+        android:layout_below="@+id/updateUserNameEditText"
         android:layout_marginTop="122dp"
         android:ems="10"
         android:inputType="textPersonName"
         android:textColor="#FFFFFF" />
 
     <TextView
-        android:id="@+id/goalTextView"
+        android:id="@+id/updateUserGoalTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/addUserGoBackButton"
-        android:layout_alignStart="@+id/firstNameTextView"
+        android:layout_above="@+id/updateUserGoBackButton"
+        android:layout_alignStart="@+id/updateUserFirstNameTextView"
         android:layout_marginBottom="108dp"
         android:text="@string/goal_text_view_text"
         android:textColor="#FFFFFF" />
 
     <Spinner
-        android:id="@+id/goalSpinner"
+        android:id="@+id/updateUserGoalSpinner"
         style="@style/Widget.AppCompat.Spinner"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
-        android:layout_alignTop="@+id/goalTextView"
+        android:layout_alignTop="@+id/updateUserGoalTextView"
         android:layout_marginTop="19dp"
         android:entries="@array/goals_array" />
 
     <Button
-        android:id="@+id/addUserSubmitButton"
+        android:id="@+id/updateUserSubmitButton"
         android:layout_width="150dp"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
         android:background="@drawable/buttonshape"
-        android:text="@string/submit_button_text"
+        android:text="@string/updatesubmit_button_text"
         android:textColor="#FFFFFF" />
 
     <Button
-        android:id="@+id/addUserGoBackButton"
+        android:id="@+id/updateUserGoBackButton"
         android:layout_width="150dp"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_alignTop="@+id/addUserSubmitButton"
+        android:layout_alignTop="@+id/updateUserSubmitButton"
         android:background="@drawable/buttonshape"
         android:text="@string/goback_button_text"
         android:textColor="#FFFFFF" />
